@@ -29,8 +29,6 @@ public class RequestHandler {
 
         String uri = FCGIInterface.request.params.getProperty("DOCUMENT_URI");
 
-
-
         if (uri.equals("/index.html") || uri.equals("/")) {
             String html = Files.readString(Paths.get("/opt/user/myapp/frontend/index.html"));
             return new HtmlDocument(html);
@@ -43,7 +41,6 @@ public class RequestHandler {
 
         else if (uri.equals("/dist/script.js") || uri.equals("/script.js")) {
             String script = Files.readString(Paths.get("/opt/user/myapp/frontend/dist/script.js"));
-            logger.info(script);
             return new ScriptData(script);
 
         }

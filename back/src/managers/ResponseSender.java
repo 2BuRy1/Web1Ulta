@@ -45,59 +45,8 @@ public class ResponseSender {
                             HtmlDocument.class.isInstance(request) ? new HtmlSender() :
                                     ScriptData.class.isInstance(request) ? new ScriptSender() :
                                             new CanvasSender();
-            logger.info(sender.getClass().getName());
+
             sender.send(request);
-//            try {
-//                //var status = functionCalc.isInTheSpot(dot);
-//                var content = """
-//                        {
-//
-//                        "status": %s,
-//                        "time": %s,
-//                        "x": %d,
-//                        "y": %f,
-//                        "r": %d
-//
-//                        }
-//                        """;
-//                var end = System.currentTimeMillis();
-//                content = content.formatted(true, String.format("%.4f", (double) (end - start) / 1000), 1, 2, 3);
-//                var httpResponse = """
-//                        HTTP/1.1 200 OK
-//                        Content-Type: application/json
-//                        Content-Length: %d
-//
-//                        %s
-//                        """.formatted(content.getBytes(StandardCharsets.UTF_8).length, content);
-//
-//                logger.warning("status: %s".formatted(true));
-//                System.out.println(httpResponse);
-//
-//
-//            } catch (Exception e) {
-//                var content = """
-//                        {
-//
-//                        error: %s
-//
-//                        }
-//                        """;
-//                content = content.formatted(e.getMessage());
-//                var httpResponse = """
-//                        HTTP/1.1 400 Bad Request
-//                        Content-Type: application/json
-//                        Content-Length: %d
-//
-//                        %s
-//                        """.formatted(content.getBytes(StandardCharsets.UTF_8).length, content);
-//
-//                System.out.println(httpResponse);
-//
-//
-//            }
-//
-//
-//        }
         }
     }
 
