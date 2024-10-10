@@ -1,4 +1,4 @@
-package Data;
+package data;
 
 public class HtmlDocument extends RequestData {
     private final String html;

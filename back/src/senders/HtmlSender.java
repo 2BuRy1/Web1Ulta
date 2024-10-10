@@ -1,8 +1,8 @@
-package Senders;
+package senders;
 
-import Data.HtmlDocument;
-import Data.RequestData;
-import Interfaces.Sendable;
+import data.HtmlDocument;
+import data.RequestData;
+import interfaces.Sendable;
 
 import java.nio.charset.StandardCharsets;
 

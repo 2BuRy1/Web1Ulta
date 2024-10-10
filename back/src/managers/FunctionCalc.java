@@ -1,6 +1,6 @@
 package managers;
 
-import Data.Dot;
+import data.Dot;
 
 import java.util.logging.Logger;
 

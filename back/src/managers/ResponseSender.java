@@ -1,14 +1,14 @@
 package managers;
 
-import Data.CanvasData;
-import Data.Dot;
-import Data.HtmlDocument;
-import Data.ScriptData;
-import Interfaces.Sendable;
-import Senders.CanvasSender;
-import Senders.HtmlSender;
-import Senders.JsonSender;
-import Senders.ScriptSender;
+import data.CanvasData;
+import data.Dot;
+import data.HtmlDocument;
+import data.ScriptData;
+import interfaces.Sendable;
+import senders.CanvasSender;
+import senders.HtmlSender;
+import senders.JsonSender;
+import senders.ScriptSender;
 import com.fastcgi.FCGIInterface;
 
 import java.io.IOException;

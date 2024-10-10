@@ -1,6 +1,6 @@
 package managers;
 
-import Data.*;
+import data.*;
 import com.fastcgi.FCGIInterface;
 
 import java.io.IOException;

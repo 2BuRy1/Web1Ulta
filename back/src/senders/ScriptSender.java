@@ -1,18 +1,17 @@
-package Senders;
+package senders;
 
-import Data.CanvasData;
-import Data.HtmlDocument;
-import Data.RequestData;
-import Interfaces.Sendable;
+import data.RequestData;
+import data.ScriptData;
+import interfaces.Sendable;
 
 import java.nio.charset.StandardCharsets;
 
-public class CanvasSender implements Sendable {
+public class ScriptSender implements Sendable {
     @Override
     public void send(RequestData requestData) {
-        CanvasData container = (CanvasData) requestData;
+        ScriptData container = (ScriptData) requestData;
 
-        String content = container.getCanvas();
+        String content = container.getScript();
 
         var end = System.currentTimeMillis();
         var httpResponse = """

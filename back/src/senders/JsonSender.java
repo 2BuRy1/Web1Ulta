@@ -1,8 +1,8 @@
-package Senders;
+package senders;
 
-import Data.Dot;
-import Data.RequestData;
-import Interfaces.Sendable;
+import data.Dot;
+import data.RequestData;
+import interfaces.Sendable;
 import managers.FunctionCalc;
 
 import java.nio.charset.StandardCharsets;

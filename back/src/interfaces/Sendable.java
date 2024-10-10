@@ -1,6 +1,6 @@
-package Interfaces;
+package interfaces;
 
-import Data.RequestData;
+import data.RequestData;
 
 public interface Sendable {
 
