@@ -22,7 +22,7 @@ FROM node:14 AS frontend_build
 
 WORKDIR /opt/user/myapp/frontend/
 
-COPY ./front /opt/user/myapp/frontend/
+COPY ./back/static/ /opt/user/myapp/frontend/
 
 RUN npm install --only=dev
 

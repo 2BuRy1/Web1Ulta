@@ -6,7 +6,7 @@ services:
   front:
     build:
       context: ./
-      dockerfile: front/Dockerfile
+      dockerfile: nginx/Dockerfile
     ports:
       - "80:80"
     networks:
