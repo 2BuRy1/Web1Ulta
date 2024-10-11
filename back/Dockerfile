@@ -41,4 +41,5 @@ COPY --from=java_build /opt/user/myapp/lib/fastCGI.jar /opt/user/myapp/lib/fastC
 
 EXPOSE 9000
 
-CMD ["java", "-DFCGI_PORT=9000", "-jar", "/opt/user/myapp/myapp.jar:/opt/user/myapp/lib/fastCGI.jar"]
+
+CMD ["java", "-DFCGI_PORT=9000", "-jar", "/opt/user/myapp/myapp.jar"]
