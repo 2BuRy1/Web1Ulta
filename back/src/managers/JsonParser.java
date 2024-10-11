@@ -2,10 +2,8 @@ package managers;
 
 import data.Dot;
 
-import java.util.logging.Logger;
 
 public class JsonParser {
-    private static final Logger logger = LoggerConfig.getLogger(JsonParser.class.getName());
 
 
 
@@ -21,7 +19,7 @@ public class JsonParser {
 
             return new Dot((int) values[0], values[1], (int) values[2], true);
         } catch (Exception e) {
-           throw new RuntimeException("Invalid JSON data");
+           return null;
         }
 
     }

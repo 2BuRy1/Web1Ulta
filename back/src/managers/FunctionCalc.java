@@ -13,12 +13,7 @@ public class FunctionCalc {
 
         var equation = dot.getR() / 2 * dot.getX() - dot.getR() / 2;
 
-        if (dot.getY() > 0 || dot.getX() < 0 || dot.getY() > equation) {
-
-            return false;
-        }
-
-        return true;
+        return !(dot.getY() > 0) && dot.getX() >= 0 && !(dot.getY() > equation);
     }
 
 
@@ -36,16 +31,19 @@ public class FunctionCalc {
 
 
     public boolean isInTheSpot(Dot dot) throws Exception {
-        if (!checkY(dot) || !checkR(dot) || !checkX(dot)) {
+        if(dot != null) {
+            if (!checkY(dot) || !checkR(dot) || !checkX(dot)) {
+                return false;
+            }
+            if (isCircle(dot) || isTriangle(dot) || isRectangle(dot)) {
+                logger.info("Returned true");
+                return true;
+            }
+
+            logger.warning("Returned false : x=%d, y=%f, r=%d".formatted(dot.getX(), dot.getY(), dot.getR()));
             return false;
         }
-        if (isCircle(dot) || isTriangle(dot) || isRectangle(dot)) {
-            logger.info("Returned true");
-            return true;
-        }
-
-        logger.warning("Returned false : x=%d, y=%f, r=%d".formatted(dot.getX(), dot.getY(), dot.getR()));
-        return false;
+        throw new Exception("Invalid JSON data");
     }
 
 
@@ -59,8 +57,8 @@ public class FunctionCalc {
     private boolean checkR(Dot dot) throws Exception {
 
         int[] array = new int[]{1, 2, 3, 4, 5};
-        for (int i = 0; i < array.length; i++) {
-            if (dot.getR() == array[i]) {
+        for (int j : array) {
+            if (dot.getR() == j) {
                 return true;
             }
         }
@@ -70,8 +68,8 @@ public class FunctionCalc {
 
     private boolean checkX(Dot dot) throws Exception {
         int[] array = new int[]{-3, -2, -1, 0, 1, 2, 3, 4};
-        for (int i = 0; i < array.length; i++) {
-            if (dot.getX() == array[i]) {
+        for (int j : array) {
+            if (dot.getX() == j) {
                 return true;
             }
         }

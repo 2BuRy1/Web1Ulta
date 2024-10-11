@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 
 public class ResponseSender {
 
-    private final FunctionCalc functionCalc;
 
     final Logger logger = LoggerConfig.getLogger(this.getClass().getName());
 
@@ -25,8 +24,7 @@ public class ResponseSender {
     Sendable sender;
 
 
-    public ResponseSender(FunctionCalc functionCalc, RequestHandler requestHandler) {
-        this.functionCalc = functionCalc;
+    public ResponseSender( RequestHandler requestHandler) {
         this.requestHandler = requestHandler;
 
     }
@@ -40,11 +38,15 @@ public class ResponseSender {
         logger.info("Waiting for requests...");
         while (fcgiInterface.FCGIaccept() >= 0) {
             var request = requestHandler.readRequest();
-            sender = (Dot.class.isInstance(request)) ? new JsonSender() :
-                    CanvasData.class.isInstance(request) ? new CanvasSender() :
-                            HtmlDocument.class.isInstance(request) ? new HtmlSender() :
-                                    ScriptData.class.isInstance(request) ? new ScriptSender() :
+            sender = request instanceof Dot ? new JsonSender() :
+                    request instanceof CanvasData ? new CanvasSender() :
+                            request instanceof HtmlDocument ? new HtmlSender() :
+                                    request instanceof ScriptData ? new ScriptSender() :
                                             new CanvasSender();
+
+            if(request == null) {
+                sender = new JsonSender();
+            }
 
             sender.send(request);
         }

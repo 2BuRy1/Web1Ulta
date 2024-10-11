@@ -13,7 +13,6 @@ public class ScriptSender implements Sendable {
 
         String content = container.getScript();
 
-        var end = System.currentTimeMillis();
         var httpResponse = """
                         HTTP/1.1 200 OK
                         Content-Type: application/javascript

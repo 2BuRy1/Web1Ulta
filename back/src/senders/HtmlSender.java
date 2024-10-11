@@ -13,7 +13,6 @@ public class HtmlSender implements Sendable {
 
         String content = container.getHtml();
 
-        var end = System.currentTimeMillis();
         var httpResponse = """
                         HTTP/1.1 200 OK
                         Content-Type: text/html
